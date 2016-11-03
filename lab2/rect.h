@@ -13,6 +13,8 @@ public:
     double height() const;
     void setHeight(double height);
 
+    double diagonal() const;
+
 private:
     virtual const char *className() const override;
 

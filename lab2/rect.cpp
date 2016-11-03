@@ -1,4 +1,5 @@
 #include "rect.h"
+#include <cmath>
 
 Rect::Rect(Color color, double width, double height)
     : Shape{color}
@@ -20,6 +21,11 @@ double Rect::height() const
 void Rect::setHeight(double height)
 {
     height_ = height;
+}
+
+double Rect::diagonal() const
+{
+    return sqrt(pow(width_, 2) + pow(height_, 2));
 }
 
 double Rect::width() const

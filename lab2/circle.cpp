@@ -1,10 +1,17 @@
 #include "circle.h"
+#include "rect.h"
 
 Circle::Circle(Color color, double radius)
     : Shape{color}
     , radius_{radius}
 {
     setColor(color);
+}
+
+Circle::Circle(const Rect &rect)
+    : Shape{rect}
+    , radius_{rect.diagonal() / 2}
+{
 }
 
 const char *Circle::className() const

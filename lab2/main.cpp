@@ -155,7 +155,8 @@ int main()
 		//Вызовите для каждого элемента массива метод WhereAmI()
 
         for (Shape* p: ar){
-
+            p->WhereAmI();
+            delete p;
         }
 
 	stop

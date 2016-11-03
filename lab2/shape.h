@@ -1,5 +1,6 @@
 #pragma once
 
+class Rect;
 
 class Shape
 {
@@ -8,6 +9,8 @@ public:
 
 public:
     explicit Shape(Color = Black);
+    Shape (const Shape &other);
+    Shape (const Rect &rect);
     virtual ~Shape();
 
     Color color() const;
