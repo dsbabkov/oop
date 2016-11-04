@@ -13,6 +13,8 @@ public:
     double radius() const;
     void setRadius(double radius);
 
+    virtual void Inflate(int) override;
+
 private:
     virtual const char *className() const override;
 

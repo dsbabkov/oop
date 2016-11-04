@@ -38,3 +38,10 @@ void Rect::setWidth(double width)
     width_ = width;
 }
 
+
+
+void Rect::Inflate(int value)
+{
+    width_ += value;
+    height_ += value;
+}

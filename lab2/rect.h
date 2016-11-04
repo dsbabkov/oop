@@ -15,10 +15,12 @@ public:
 
     double diagonal() const;
 
+    virtual void Inflate(int) override;
+
 private:
     virtual const char *className() const override;
 
 private:
     double width_;
-    double height_;
+    double height_;    
 };

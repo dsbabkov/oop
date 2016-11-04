@@ -29,3 +29,8 @@ void Circle::setRadius(double radius)
     radius_ = radius;
 }
 
+
+void Circle::Inflate(int value)
+{
+    radius_ += value;
+}

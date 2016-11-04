@@ -18,6 +18,8 @@ public:
 
     void WhereAmI() const;
 
+    virtual void Inflate(int) = 0;
+
 private:
     virtual const char *className() const;
 

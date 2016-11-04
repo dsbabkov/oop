@@ -96,32 +96,32 @@ int main()
 	//Снова выполните приведенный фрагмент, объясните разницу.
 
 	{
-        Shape s{};
+//        Shape s{};
         Rect r(Shape::Black);
         Circle c(Shape::Black);
 
 	
 		//Метод какого класса вызывается в следующих строчках???
-        s.WhereAmI();	//	???
+//        s.WhereAmI();	//	???
 		r.WhereAmI();	//	???
 		c.WhereAmI();	//	???
 		stop
 
 
-		Shape* pShape = &s;
+//		Shape* pShape = &s;
 		Shape* pRect = &r;
 		Shape* pCircle = &c;
-    	pShape->WhereAmI();	//	???
+//    	pShape->WhereAmI();	//	???
 		pRect->WhereAmI();	//	???
 		pCircle->WhereAmI(); //	???
 		stop
 
 
 		//Заполните ... согласно комментариям
-        Shape& rShape = s; //псевдоним s
+//        Shape& rShape = s; //псевдоним s
         Shape& rRect = r; //псевдоним r
         Shape& rCircle = c; //псевдоним c
-        rShape.WhereAmI();	//вызов посредством rShape	???
+//        rShape.WhereAmI();	//вызов посредством rShape	???
         rRect.WhereAmI();	//вызов посредством	rRect	???
         rCircle.WhereAmI(); //вызов посредством rCircle	???
 		stop
@@ -151,13 +151,13 @@ int main()
 		//не хватает - добавьте
 
         Rect r(Shape::Black, 2, 6);
-		Shape* ar[]={new Shape(r), new Rect(r), new Circle(r), new Circle() };
+//		Shape* ar[]={new Shape(r), new Rect(r), new Circle(r), new Circle() };
 		//Вызовите для каждого элемента массива метод WhereAmI()
 
-        for (Shape* p: ar){
-            p->WhereAmI();
-            delete p;
-        }
+//        for (Shape* p: ar){
+//            p->WhereAmI();
+//            delete p;
+//        }
 
 	stop
 
@@ -186,39 +186,39 @@ int main()
 
 
 //////////////////////////////////////////////////////////////////////
-/*
+
 	//Задание 7.Виртуальные функции и оператор разрешения области видимости. 
 
 	{
-		Rect r(...);
+        Rect r;
 		Shape* p = &r;	
-		p->WhereAmI();//...
+        p->WhereAmI();//...
 		stop
 	
 		
 		//4a Оператор разрешения области видимости.
 		//Посредством объекта r и указателя p вызовите виртуальную функцию
 		//WhereAmI()класса Shape
-		
-		
+                // TODO:
+        p->Shape::WhereAmI();
+        stop
 	}
-*/
+
 
 //////////////////////////////////////////////////////////////////////
-/*
+
 	//Задание 8.Чисто виртуальные функции. 
 	//Введите в базовый класс метод void Inflate(int); Подумайте:
 	//можно ли реализовать такой метод для базового класса? => как его нужно объявить.
 	//Реализуйте этот метод для производных классов.
 	{
-		Rect r(...);
+        Rect r;
 		Shape* p = &r;
 		p->Inflate(5);
-		Circle c(...);
+        Circle c;
 		p = &c;
 		p->Inflate(5);
 	}
-*/
 
 
 //////////////////////////////////////////////////////////////////////
