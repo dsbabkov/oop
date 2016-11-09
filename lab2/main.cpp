@@ -7,10 +7,11 @@
 #include <iostream>
 #include "rect.h"
 #include "circle.h"
+#include "mybyte.h"
 
 int main()
 {
-    goto task7;
+    goto task9;
 	//Задание 1.Массив объектов класса.
 	{
 	//Объявите и проинициализируйте массив ar из объектов
@@ -49,9 +50,8 @@ int main()
 
 	//Печать строк-членов класса
     for (int i = 0; i < N; ++i){
-        //if (arPtr[i]){
             std::cout << arPtr[i]->GetString() << '\n';
-       // }
+            delete arPtr[i];
     }
 
    	//Замените размер const int N=5; , не изменяя список инициализаторов.
@@ -163,7 +163,7 @@ int main()
 	stop
 
 
-
+task6:
 	//Задание 6*. В чем заключается отличие 1) и 2)
 	{
         Shape* pShapes = new Rect[10];//1) //invalid sizeof element
@@ -173,12 +173,12 @@ int main()
 		//в чем заключается проблема???
 
         for (int i = 0; i < 10; ++i){
-//            (&pShapes[i])->WhereAmI();
+            static_cast<Rect *>(pShapes)[i].WhereAmI();
             pRects[i].WhereAmI();
         }
 
         //Освободите динамически захваченную память
-        delete[] pShapes;
+        delete[] static_cast<Rect *>(pShapes);
         delete[] pRects;
 
 	}
@@ -226,9 +226,14 @@ task7:
 	//Задание 9. Создайте глобальную функцию, которая будет принимать любое
 	//количество указателей на строки, а возвращать объект MyString,
 	//в котором строка будет конкатенацией параметров
-
+    task9:
+    {
+       MyString res = concatenate("My ","long ", "string ", "is ", "super!", nullptr);
+       std::cout << res.GetString();
+    }
 ////////////////////////////////////////////////////////////////////////
-/*
+
+    task10:
 	//Задание 10.Объединения (union) C++. Битовые поля.
 	//1.
 	//Создайте следующие классы для различных представлений значений байта:
@@ -250,13 +255,13 @@ task7:
 	//			восьмеричные, двоичные цифры;
 	//в) изменять отдельные двоичные, восьмеричные или шестнадцатеричные цифры;
 
-	MyByte byte(0x1f);
-	byte.ShowHex();
-	byte.ShowBin();
-	//...
+    MyByte myByte(0x1f);
 
+    myByte.ShowBin();
+    myByte.ShowOct();
+    myByte.ShowHex();
+    myByte.ShowChar();
 
-*/
 	return 0;
 }//endmain
 

@@ -12,11 +12,19 @@ SOURCES += main.cpp \
     myString.cpp \
     shape.cpp \
     rect.cpp \
-    circle.cpp
+    circle.cpp \
+    bin.cpp \
+    hex.cpp \
+    oct.cpp \
+    mybyte.cpp
 
 HEADERS += \
     myString.h \
     shape.h \
     rect.h \
-    circle.h
+    circle.h \
+    bin.h \
+    hex.h \
+    oct.h \
+    mybyte.h
 
