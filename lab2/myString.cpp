@@ -6,9 +6,8 @@
 using namespace std;
 
 MyString::MyString()
-    : m_pStr{ new char(0) }
+    : m_pStr{ new char[0]{0} }
 {
-    //m_pStr[0] = '\0';
 }
 
 MyString::MyString(const char * cstring)
