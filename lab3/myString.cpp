@@ -6,7 +6,7 @@
 using namespace std;
 
 MyString::MyString()
-    : m_pStr{ new char[0]{0} }
+    : m_pStr{ new char[1]{0} }
 {
 }
 
@@ -39,15 +39,24 @@ MyString::~MyString()
 
 const char * MyString::GetString() const
 {
-    return this ?
-                m_pStr :
-                "nullptr";
+    return m_pStr;
 }
 
 void MyString::SetNewString(const char * cstring)
 {
 	delete[] m_pStr;
     m_pStr = DuplicateCString(cstring);
+}
+
+MyString &MyString::operator =(const MyString &other)
+{
+    if (this == &other){
+        return *this;
+    }
+
+    delete[] m_pStr;
+    m_pStr = DuplicateCString(other.m_pStr);
+    return *this;
 }
 
 MyString &MyString::operator +=(const MyString &other)

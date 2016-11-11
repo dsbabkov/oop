@@ -8,7 +8,7 @@ class MyString
 {
 public:
 	MyString();
-    explicit MyString(const char *cstring);
+    MyString(const char *cstring);
 	MyString(const MyString &other);
     MyString(MyString &&other);
     MyString(char *&& cstring);
@@ -17,6 +17,7 @@ public:
 	const char *GetString() const;
 	void SetNewString(const char *cstring);
 
+    MyString &operator = (const MyString &other);
     MyString &operator +=(const MyString &other);
 
 private:
