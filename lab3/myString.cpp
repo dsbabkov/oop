@@ -5,6 +5,15 @@
 
 using namespace std;
 
+ostream &operator <<(ostream &os, const MyString &string)
+{
+    if (string.m_pStr){
+        os << string.m_pStr;
+    }
+
+    return os;
+}
+
 MyString::MyString()
     : m_pStr{ new char[1]{0} }
 {

@@ -4,7 +4,9 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    myString.cpp
+    myString.cpp \
+    Point.cpp
 
 HEADERS += \
-    myString.h
+    myString.h \
+    Point.h

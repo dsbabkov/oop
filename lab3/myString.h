@@ -1,11 +1,13 @@
 #pragma once
 
 #include <cstddef>
+#include <iostream>
 
 char *DuplicateCString(const char *);
 
 class MyString
 {
+    friend std::ostream &operator << (std::ostream &os, const MyString &string);
 public:
 	MyString();
     MyString(const char *cstring);
