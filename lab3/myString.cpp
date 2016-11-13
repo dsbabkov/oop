@@ -81,6 +81,20 @@ MyString &MyString::operator +=(const MyString &other)
     return *this;
 }
 
+bool MyString::operator ==(const MyString &other) const
+{
+    if (this == &other){
+        return true;
+    }
+
+    return !strcmp(m_pStr, other.m_pStr);
+}
+
+bool MyString::operator !=(const MyString &other) const
+{
+    return !(*this == other);
+}
+
 char *DuplicateCString(const char *cstring)
 {
     char *result = new char[strlen(cstring) + 1];

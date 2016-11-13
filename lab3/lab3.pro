@@ -5,8 +5,14 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     myString.cpp \
-    Point.cpp
+    Point.cpp \
+    BD.cpp \
+    Data.cpp \
+    DataPair.cpp
 
 HEADERS += \
     myString.h \
-    Point.h
+    Point.h \
+    BD.h \
+    Data.h \
+    DataPair.h

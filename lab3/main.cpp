@@ -9,6 +9,8 @@
 #include "myString.h"
 #include "Point.h"
 #include <iostream>
+#include "BD.h"
+
 using namespace std;
 
 
@@ -128,13 +130,22 @@ int main()
 	//вывод информации о конкретном сотруднике
 	//вывод всей (или интересующей) информации о всех сотрудниках
 	//Например:
-/*
+
 		BD bd;	//создание пустой базы
-		bd["Ivanov"] = Data(30,MALE,<остальные данные>);	//если Ivanov-а в базе еще нет, то
+        bd["Ivanov"] = {30, Data::Male, "Enginer", 100};
+        bd["Ivanov"] = {30, Data::Male, "Enginer", 200};
+        bd["Petrov"] = {21, Data::Male, "Cleaner", 3500};
+        bd["Karpova"] = {29, Data::Female, "Director", 35};
+        bd["Klueva"] = {14, Data::Female, "Designer", 200};
+
+        bd.erase("Karpova");
+
+
+        //если Ivanov-а в базе еще нет, то
 						//добавление, если уже есть, то замена его реквизитов
 		std::cout<<bd;	//вывод информации обо всех сотрудниках
 
-*/
+
 	
 	return 0;
 }//endmain
