@@ -3,8 +3,15 @@
 
 struct Data
 {
+    enum Sex {Male, Female};
+    Data();
+    Data(unsigned char age,
+         Data::Sex sex,
+         const MyString &profession,
+         double salary);
+
     unsigned char age;
-    enum Sex {Male, Female} sex;
+    Sex sex;
     MyString profession;
     double salary;
 };

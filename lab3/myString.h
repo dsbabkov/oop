@@ -20,7 +20,13 @@ public:
 	void SetNewString(const char *cstring);
 
     MyString &operator = (const MyString &other);
+    MyString &operator = (MyString &&other);
+    MyString &operator = (const char *cstring);
+
     MyString &operator +=(const MyString &other);
+    MyString &operator +=(const char *cstring);
+
+    size_t length() const;
 
     bool operator == (const MyString &other) const;
     bool operator != (const MyString &other) const;

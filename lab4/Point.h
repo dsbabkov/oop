@@ -9,7 +9,7 @@ class Point
     friend std::ostream &operator << (std::ostream &os, const Point &point);
 public:
     Point();
-    /*implicit*/ Point(int value);
+    explicit Point(int value);
     Point(int x, int y);
     Point(const Point &) = default;
 

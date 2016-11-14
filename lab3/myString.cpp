@@ -68,6 +68,22 @@ MyString &MyString::operator =(const MyString &other)
     return *this;
 }
 
+MyString &MyString::operator =(MyString &&other)
+{
+    delete[] m_pStr;
+    m_pStr = other.m_pStr;
+    other.m_pStr = nullptr;
+
+    return *this;
+}
+
+MyString &MyString::operator =(const char *cstring)
+{
+    delete[] m_pStr;
+    m_pStr = DuplicateCString(cstring);
+    return *this;
+}
+
 MyString &MyString::operator +=(const MyString &other)
 {
     size_t thisLength = strlen(m_pStr);
@@ -79,6 +95,22 @@ MyString &MyString::operator +=(const MyString &other)
     m_pStr = tmp;
 
     return *this;
+}
+
+MyString &MyString::operator +=(const char *cstring)
+{
+    size_t thisLength = length();
+    char *result = new char[thisLength + strlen(cstring) + 1];
+    strcpy(result, m_pStr);
+    strcpy(result + thisLength, cstring);
+    delete[] m_pStr;
+    m_pStr = result;
+    return *this;
+}
+
+size_t MyString::length() const
+{
+    return strlen(m_pStr);
 }
 
 bool MyString::operator ==(const MyString &other) const

@@ -1,10 +1,29 @@
 #include "BD.h"
 #include "DataPair.h"
-#include <exception>
+#include <stdexcept>
 
 BD::BD()
     : first_{}
+    , last_{}
 {
+}
+
+BD::BD(const BD &other)
+    : first_{}
+    , last_{}
+{
+    const DataPair *it = other.first_;
+    while (it){
+        operator [](it->name_) = it->data();
+        it = it->next_;
+    }
+}
+
+BD::BD(BD &&other)
+    : first_{other.first_}
+    , last_{other.last_}
+{
+    other.first_ = other.last_ = nullptr;
 }
 
 BD::~BD()
@@ -100,6 +119,28 @@ bool BD::erase(const MyString &name)
 const DataPair *BD::cbegin() const
 {
     return first_;
+}
+
+void BD::swap(BD &left, BD &right)
+{
+    std::swap(left.first_, right.first_);
+    std::swap(left.last_, right.last_);
+}
+
+BD &BD::operator =(const BD &other)
+{
+    BD copyOfOther = other;
+    swap(*this, copyOfOther);
+    return *this;
+}
+
+BD &BD::operator =(BD &&other)
+{
+    first_ = other.first_;
+    last_ = other.last_;
+    other.first_ = other.last_ = nullptr;
+
+    return *this;
 }
 
 std::ostream &operator <<(std::ostream &os, const BD &bd)

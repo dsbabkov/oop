@@ -1,9 +1,18 @@
 #include "Data.h"
 
-//Data::Data()
-//    : salary{}
-//    , sex{}
-//    , age{}
-//    , profession{}
-//{
-//}
+Data::Data()
+    : age{}
+    , sex{}
+    , profession{}
+    , salary{}
+{
+
+}
+
+Data::Data(unsigned char age, Data::Sex sex, const MyString &profession, double salary)
+    : age{age}
+    , sex{sex}
+    , profession{profession}
+    , salary{salary}
+{
+}
