@@ -7,6 +7,14 @@ ListNode::ListNode()
 {
 }
 
+ListNode::ListNode(ListNode &&other)
+    : prev_{other.prev_}
+    , next_{other.next_}
+    , data_{std::move(other.data_)}
+{
+    other.prev_ = other.next_ = {};
+}
+
 ListNode::ListNode(ListNode *after, const Circle &circle)
     : prev_{after}
     , next_{}
@@ -55,4 +63,21 @@ ListNode *ListNode::next() const
     return next_;
 }
 
+void ListNode::setPrev(ListNode *prev)
+{
+    prev_ = prev;
+}
 
+void ListNode::setNext(ListNode *next)
+{
+    next_ = next;
+}
+
+void ListNode::swap(ListNode &other)
+{
+    using std::swap;
+
+    swap(prev_, other.prev_);
+    swap(next_, other.next_);
+    swap(data_, other.data_);
+}

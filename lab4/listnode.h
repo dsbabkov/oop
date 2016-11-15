@@ -10,6 +10,7 @@ class ListNode
 
 public:
     ListNode();
+    ListNode(ListNode &&other);
     ListNode(ListNode *after, const Circle &circle);
     ~ListNode();
 
@@ -18,6 +19,11 @@ public:
 
     ListNode *prev() const;
     ListNode *next() const;
+
+    void setPrev(ListNode *prev);
+    void setNext(ListNode *next);
+
+    void swap(ListNode &other);
 
 private:
     ListNode *prev_;

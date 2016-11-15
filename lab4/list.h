@@ -14,6 +14,8 @@ public:
     void prepend(const Circle &circle);
     void append(const Circle &circle);
 
+    void swap(List &other);
+
 private:
     ListNode head_;
     ListNode tail_;
