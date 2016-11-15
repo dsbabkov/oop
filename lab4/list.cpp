@@ -30,7 +30,7 @@ List::List(List &&other)
 
 List::~List()
 {
-    for (ListNode *p = head_.next(); p != &tail_; p = p->next(), delete p->prev());
+    clear();
 }
 
 List &List::operator =(const List &other)
@@ -118,4 +118,20 @@ size_t List::removeAll(const Circle &circle)
 
     size_ -= count;
     return count;
+}
+
+void List::clear()
+{
+    for (ListNode *p = head_.next(); p != &tail_; p = p->next(), delete p->prev());
+    size_ = 0;
+}
+
+bool List::isEmpty() const
+{
+    return head_.next() == &tail_;
+}
+
+size_t List::size() const
+{
+    return size_;
 }

@@ -24,7 +24,9 @@ public:
     bool removeFirst(const Circle &circle);
     size_t removeAll(const Circle &circle);
 
-
+    void clear();
+    bool isEmpty() const;
+    size_t size() const;
 
 private:
     ListNode head_;
