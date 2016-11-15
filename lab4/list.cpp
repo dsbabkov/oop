@@ -71,3 +71,51 @@ void List::swap(List &other)
     tail_.swap(other.tail_);
     std::swap(size_, other.size_);
 }
+
+ListNode *List::begin()
+{
+    return head_.next();
+}
+
+ListNode *List::end()
+{
+    return &tail_;
+}
+
+ListNode *List::rbegin()
+{
+    return tail_.prev();
+}
+
+ListNode *List::rend()
+{
+    return &head_;
+}
+
+bool List::removeFirst(const Circle &circle)
+{
+    for (ListNode *it = head_.next(); it != &tail_; it = it->next()){
+        if (it->data() == circle){
+            delete it;
+            --size_;
+            return true;
+        }
+    }
+    return false;
+}
+
+size_t List::removeAll(const Circle &circle)
+{
+    size_t count = 0;
+
+    for (ListNode *it = head_.next(); it != &tail_; it = it->next()){
+        if (it->data() == circle){
+            it = it->prev();
+            delete it->next();
+            ++count;
+        }
+    }
+
+    size_ -= count;
+    return count;
+}

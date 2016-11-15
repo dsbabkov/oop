@@ -11,7 +11,15 @@ public:
 
     Circle &operator = (const Circle & other) = default;
 
+    Point center() const;
+    void setCenter(const Point &center);
+
+    int radius() const;
+    void setRadius(int radius);
+
 private:
     Point center_;
     int radius_;
 };
+
+bool operator == (const Circle &left, const Circle &right);

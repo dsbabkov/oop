@@ -16,6 +16,16 @@ public:
 
     void swap(List &other);
 
+    ListNode *begin();
+    ListNode *end();
+    ListNode *rbegin();
+    ListNode *rend();
+
+    bool removeFirst(const Circle &circle);
+    size_t removeAll(const Circle &circle);
+
+
+
 private:
     ListNode head_;
     ListNode tail_;
