@@ -16,10 +16,10 @@ public:
 
     void swap(List &other);
 
-    ListNode *begin();
-    ListNode *end();
-    ListNode *rbegin();
-    ListNode *rend();
+    ListNode *begin() const;
+    const ListNode *end() const;
+    ListNode *rbegin() const;
+    const ListNode *rend() const;
 
     bool removeFirst(const Circle &circle);
     size_t removeAll(const Circle &circle);
@@ -27,6 +27,8 @@ public:
     void clear();
     bool isEmpty() const;
     size_t size() const;
+
+    void sortBySquare() const;
 
 private:
     ListNode head_;

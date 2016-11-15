@@ -1,4 +1,7 @@
 #include "circle.h"
+#include <cmath>
+
+static const double pi = acos(-1);
 
 Circle::Circle()
     : center_{}
@@ -30,6 +33,11 @@ int Circle::radius() const
 void Circle::setRadius(int radius)
 {
     radius_ = radius;
+}
+
+double Circle::square() const
+{
+    return pi * pow(radius_, 2);
 }
 
 

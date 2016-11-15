@@ -17,6 +17,8 @@ public:
     int radius() const;
     void setRadius(int radius);
 
+    double square() const;
+
 private:
     Point center_;
     int radius_;

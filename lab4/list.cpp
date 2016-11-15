@@ -72,22 +72,22 @@ void List::swap(List &other)
     std::swap(size_, other.size_);
 }
 
-ListNode *List::begin()
+ListNode *List::begin() const
 {
     return head_.next();
 }
 
-ListNode *List::end()
+const ListNode *List::end() const
 {
     return &tail_;
 }
 
-ListNode *List::rbegin()
+ListNode *List::rbegin() const
 {
     return tail_.prev();
 }
 
-ListNode *List::rend()
+const ListNode *List::rend() const
 {
     return &head_;
 }
@@ -134,4 +134,22 @@ bool List::isEmpty() const
 size_t List::size() const
 {
     return size_;
+}
+
+void List::sortBySquare() const
+{
+    if (begin() == end()){
+        return;
+    }
+
+    for (ListNode *p1 = begin(); p1 != tail_.prev(); p1 = p1->next()){
+        double p1Square = p1->data().square();
+        for (ListNode *p2 = p1->next(); p2 != &tail_; p2 = p2->next()){
+            double p2Square = p2->data().square();
+            if (p1Square > p2Square){
+                p1->swapData(*p2);
+                p1Square = p2Square;
+            }
+        }
+    }
 }

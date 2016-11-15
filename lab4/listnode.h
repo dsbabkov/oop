@@ -24,6 +24,7 @@ public:
     void setNext(ListNode *next);
 
     void swap(ListNode &other);
+    void swapData(ListNode &other);
 
 private:
     ListNode *prev_;

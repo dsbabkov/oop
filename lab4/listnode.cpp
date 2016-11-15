@@ -73,6 +73,11 @@ void ListNode::setNext(ListNode *next)
     next_ = next;
 }
 
+void ListNode::swapData(ListNode &other)
+{
+    std::swap(data_, other.data_);
+}
+
 void ListNode::swap(ListNode &other)
 {
     using std::swap;
