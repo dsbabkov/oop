@@ -104,14 +104,14 @@ void MyString::excludeCounterFromList(Counter *counter)
     counter->setNext({});
 }
 
-void MyString::debugPrintCounters()
+void MyString::printAllStrings()
 {
     if (!counters_){
-        std::cout << "No counters\n";
+        std::cout << "No strings\n";
     }
 
     for (const Counter *p = counters_; p; p = p->next()){
-        std::cout << p->str() << ": " << p->owners() << '\n';
+        std::cout << "String: " << p->str() << " Copies: " << p->owners() << '\n';
     }
 }
 

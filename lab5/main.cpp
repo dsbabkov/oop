@@ -10,7 +10,7 @@ int main()
     MyString s4;
     s4 = s3;
 
-    MyString::debugPrintCounters();
+    MyString::printAllStrings();
 
     std::cout << s1 << '\n'
               << s2 << '\n'
@@ -20,7 +20,7 @@ int main()
     s2 = s1;
     s1 = std::move(s3);
 
-    MyString::debugPrintCounters();
+    MyString::printAllStrings();
 
     std::cout << s1 << '\n'
               << s2 << '\n'
@@ -41,7 +41,7 @@ int main()
     MyString s6 = MyString(std::move(s4));
     MyString::debugPrintCountersCount();
 
-    MyString::debugPrintCounters();
+    MyString::printAllStrings();
 
     std::cout << s1 << '\n'
               << s2 << '\n'

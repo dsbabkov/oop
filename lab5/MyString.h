@@ -18,7 +18,7 @@ public:
 
     const char *cStr() const;
 
-    static void debugPrintCounters();
+    static void printAllStrings();
     static void debugPrintCountersCount();
 
 private:
