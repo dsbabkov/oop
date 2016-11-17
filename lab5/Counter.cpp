@@ -31,5 +31,29 @@ void Counter::removeOwner()
 
 const char *Counter::str() const
 {
-    return str_MyS;
+    return str_;
+}
+
+Counter &Counter::operator ++(int)
+{
+    addOwner();
+    return *this;
+}
+
+Counter &Counter::operator --(int)
+{
+    removeOwner();
+    return *this;
+}
+
+Counter Counter::operator ++()
+{
+    addOwner();
+    return *this;
+}
+
+Counter Counter::operator --()
+{
+    removeOwner();
+    return *this;
 }

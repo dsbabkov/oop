@@ -2,6 +2,9 @@
 
 class Counter
 {
+    Counter(const Counter &other) = delete;
+    Counter &operator = (const Counter &ohter) = delete;
+
 public:
     Counter(const char * str = "", Counter *before = nullptr);
     ~Counter();
@@ -10,6 +13,11 @@ public:
     void removeOwner();
 
     const char *str() const;
+
+    Counter &operator ++(int);
+    Counter &operator --(int);
+    Counter operator ++();
+    Counter operator --();
 
 private:
     Counter *next_;
