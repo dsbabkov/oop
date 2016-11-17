@@ -1,5 +1,4 @@
 #include "listnode.h"
-#include <iostream>
 #include <utility>
 
 class List
@@ -44,3 +43,4 @@ private:
 };
 
 std::ostream &operator << (std::ostream &os, const List &list);
+std::ifstream &operator >> (std::ifstream &is, List &list);

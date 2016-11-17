@@ -1,4 +1,5 @@
 #include "list.h"
+#include <fstream>
 
 List::List()
     : head_{}
@@ -186,10 +187,26 @@ void List::connectHeadToTail()
 
 std::ostream &operator <<(std::ostream &os, const List &list)
 {
+    os << list.size() << '\n';
     for (ListNode *it = list.begin(); it != list.end(); it = it->next()){
-        const Circle &circle = it->data();
-        os << "Center: " << circle.center()
-           << ", radius: " << circle.radius() << '\n';
+        os << it->data() << '\n';
     }
     return os;
+}
+
+std::ifstream &operator >>(std::ifstream &is, List &list)
+{
+    list.clear();
+
+    size_t count = 0;
+
+    is >> count;
+
+    for (size_t i = 0; i < count; ++i){
+        Circle circle;
+        is >> circle;
+        list.append(circle);
+    }
+
+    return is;
 }

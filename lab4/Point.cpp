@@ -7,7 +7,8 @@ Point operator -(const Point &point)
 
 std::ostream &operator <<(std::ostream &os, const Point &point)
 {
-    return os << '{' << point.x_ << "; " << point.y_ << '}';
+//    return os << '{' << point.x_ << "; " << point.y_ << '}';
+    return os << point.x_ << ' ' << point.y_;
 }
 
 Point::Point()
@@ -115,4 +116,17 @@ bool operator ==(const Point &left, const Point &right)
 {
     return left.x() == right.x() &&
             left.y() == right.y();
+}
+
+std::istream &operator >>(std::istream &is, Point &point)
+{
+    int x{};
+    int y{};
+
+    is >> x >> y;
+
+    point.setX(x);
+    point.setY(y);
+
+    return is;
 }

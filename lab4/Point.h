@@ -37,3 +37,5 @@ Point operator - (int value, const Point &point);
 Point operator + (int value, const Point &point);
 Point operator-(const Point &point);
 bool operator == (const Point &left, const Point &right);
+
+std::istream &operator >> (std::istream &is, Point &point);

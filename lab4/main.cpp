@@ -28,6 +28,14 @@ int main()
     std::ofstream f("test.txt");
     f << list;
 
+    f.close();
+
+    std::ifstream s("test.txt");
+    List r;
+    s >> r;
+
+    std::cout << "\n\n\nRead:\n" << r;
+
     return 0;
 }
 

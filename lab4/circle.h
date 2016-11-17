@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Point.h"
+#include <iostream>
 
 class Circle
 {
@@ -25,3 +26,6 @@ private:
 };
 
 bool operator == (const Circle &left, const Circle &right);
+
+std::ostream &operator << (std::ostream &os, const Circle &circle);
+std::istream &operator >> (std::istream &is, Circle &circle);
