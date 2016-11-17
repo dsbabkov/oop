@@ -80,6 +80,10 @@ void ListNode::swapData(ListNode &other)
 
 void ListNode::swap(ListNode &other)
 {
+    if (this == &other){
+        return;
+    }
+
     using std::swap;
 
     swap(prev_, other.prev_);

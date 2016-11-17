@@ -1,4 +1,6 @@
 #include "listnode.h"
+#include <iostream>
+#include <utility>
 
 class List
 {
@@ -31,8 +33,14 @@ public:
     void sortBySquare() const;
 
 private:
+    void connecMiddleToEndings();
+    void connectHeadToTail();
+
+private:
     ListNode head_;
     ListNode tail_;
 
     size_t size_;
 };
+
+std::ostream &operator << (std::ostream &os, const List &list);

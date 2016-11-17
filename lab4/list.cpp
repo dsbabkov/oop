@@ -11,8 +11,10 @@ List::List()
 List::List(const List &other)
     : head_{}
     , tail_{ &head_, {} }
-    , size_{other.size_}
+    , size_{}
 {
+    head_.setNext(&tail_);
+
     for (const ListNode *p = other.head_.next(); p != &other.tail_; p = p->next()){
         append(p->data());
     }
@@ -35,6 +37,10 @@ List::~List()
 
 List &List::operator =(const List &other)
 {
+    if (this == &other){
+        return *this;
+    }
+
     List tmp = other;
     tmp.swap(*this);
     return *this;
@@ -70,6 +76,9 @@ void List::swap(List &other)
     head_.swap(other.head_);
     tail_.swap(other.tail_);
     std::swap(size_, other.size_);
+
+    connecMiddleToEndings();
+    other.connecMiddleToEndings();
 }
 
 ListNode *List::begin() const
@@ -122,6 +131,10 @@ size_t List::removeAll(const Circle &circle)
 
 void List::clear()
 {
+    if (isEmpty()){
+        return;
+    }
+
     for (ListNode *p = head_.next(); p != &tail_; p = p->next(), delete p->prev());
     size_ = 0;
 }
@@ -152,4 +165,31 @@ void List::sortBySquare() const
             }
         }
     }
+}
+
+void List::connecMiddleToEndings()
+{
+    if (size_){
+        head_.next()->setPrev(&head_);
+        tail_.prev()->setNext(&tail_);
+    }
+    else{
+        connectHeadToTail();
+    }
+}
+
+void List::connectHeadToTail()
+{
+    head_.setNext(&tail_);
+    tail_.setPrev(&head_);
+}
+
+std::ostream &operator <<(std::ostream &os, const List &list)
+{
+    for (ListNode *it = list.begin(); it != list.end(); it = it->next()){
+        const Circle &circle = it->data();
+        os << "Center: " << circle.center()
+           << ", radius: " << circle.radius() << '\n';
+    }
+    return os;
 }
