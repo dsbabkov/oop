@@ -4,7 +4,7 @@
 Counter::Counter(const char * str, Counter *before)
     : next_{}
     , str_{new char[strlen(str) + 1]}
-    , owners_{1}
+    , owners_{}
 {
     if (before){
         next_ = before->next_;
@@ -29,31 +29,32 @@ void Counter::removeOwner()
     --owners_;
 }
 
+bool Counter::hasOwners() const
+{
+    return owners_;
+}
+
+unsigned Counter::owners() const
+{
+    return owners_;
+}
+
 const char *Counter::str() const
 {
     return str_;
 }
 
-Counter &Counter::operator ++(int)
+Counter *Counter::next() const
 {
-    addOwner();
-    return *this;
+    return next_;
 }
 
-Counter &Counter::operator --(int)
+void Counter::setNext(Counter *next)
 {
-    removeOwner();
-    return *this;
+    next_ = next;
 }
 
-Counter Counter::operator ++()
+bool operator ==(const Counter &counter, const char *str)
 {
-    addOwner();
-    return *this;
-}
-
-Counter Counter::operator --()
-{
-    removeOwner();
-    return *this;
+    return !strcmp(counter.str(), str);
 }

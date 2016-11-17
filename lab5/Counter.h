@@ -11,16 +11,18 @@ public:
 
     void addOwner();
     void removeOwner();
+    bool hasOwners() const;
+    unsigned owners() const;
 
     const char *str() const;
 
-    Counter &operator ++(int);
-    Counter &operator --(int);
-    Counter operator ++();
-    Counter operator --();
+    Counter *next() const;
+    void setNext(Counter *next);
 
 private:
     Counter *next_;
     char *str_;
     unsigned owners_;
 };
+
+bool operator == (const Counter &counter, const char *str);
