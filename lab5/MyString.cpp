@@ -115,6 +115,7 @@ void MyString::printAllStrings()
 {
     if (!counters_){
         std::cout << "No strings\n";
+        return;
     }
 
     for (const Counter *p = counters_; p; p = p->next()){
@@ -122,13 +123,46 @@ void MyString::printAllStrings()
     }
 }
 
-void MyString::debugPrintCountersCount()
+void MyString::printOrderedStrings()
+{
+    if (!counters_){
+        std::cout << "No strings\n";
+        return;
+    }
+
+    unsigned counterListSize = counterCount();
+    const Counter **counters = new const Counter *[counterListSize];
+
+    const Counter **pVecCounterIt = counters;
+
+    for (const Counter *pListCounter = counters_; pListCounter; pListCounter = pListCounter->next()){
+        *pVecCounterIt++ = pListCounter;
+    }
+
+    for (unsigned i = 0; i < counterListSize - 1; ++i){
+        for (unsigned j = i + 1; j < counterListSize; ++j){
+            if (*counters[j] < *counters[i]){
+                std::swap(counters[i], counters[j]);
+            }
+        }
+        std::cout << "String: " << counters[i]->str() << " Copies: " << counters[i]->owners() << '\n';
+    }
+
+    delete[] counters;
+}
+
+unsigned MyString::counterCount()
 {
     unsigned result = 0;
     for (const Counter *p = counters_; p; p = p->next()){
         ++result;
     }
-    std::cout << "Counters count = " << result << '\n';
+    return result;
+}
+
+void MyString::debugPrintCountersCount()
+{
+    std::cout << "Counters count = " << counterCount() << '\n';
 }
 
 std::ostream & operator << (std::ostream &os, const MyString &str){

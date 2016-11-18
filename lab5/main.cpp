@@ -49,5 +49,7 @@ int main()
               << s3 << '\n'
               << s4 << '\n' << s5 << '\n' << s6 << "\n\n\n";
 
+    MyString::printOrderedStrings();
+
     return 0;
 }

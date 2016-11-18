@@ -28,3 +28,4 @@ private:
 };
 
 bool operator == (const Counter &counter, const char *str);
+bool operator < (const Counter &left, const Counter &right);

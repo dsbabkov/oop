@@ -19,6 +19,8 @@ public:
     const char *cStr() const;
 
     static void printAllStrings();
+    static void printOrderedStrings();
+    static unsigned counterCount();
     static void debugPrintCountersCount();
     static void toggleStringsCase();
 

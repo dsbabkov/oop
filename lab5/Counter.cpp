@@ -65,3 +65,8 @@ bool operator ==(const Counter &counter, const char *str)
 {
     return !strcmp(counter.str(), str);
 }
+
+bool operator <(const Counter &left, const Counter &right)
+{
+    return strcmp(left.str(), right.str()) < 0;
+}
