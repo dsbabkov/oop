@@ -10,6 +10,7 @@ int main()
     MyString s4;
     s4 = s3;
 
+    MyString::toggleStringsCase();
     MyString::printAllStrings();
 
     std::cout << s1 << '\n'

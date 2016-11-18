@@ -20,6 +20,7 @@ public:
 
     static void printAllStrings();
     static void debugPrintCountersCount();
+    static void toggleStringsCase();
 
 private:
     void decrementCounter();

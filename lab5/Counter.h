@@ -19,6 +19,8 @@ public:
     Counter *next() const;
     void setNext(Counter *next);
 
+    void toggleStringCase();
+
 private:
     Counter *next_;
     char *str_;

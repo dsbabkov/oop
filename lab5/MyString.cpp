@@ -104,6 +104,13 @@ void MyString::excludeCounterFromList(Counter *counter)
     counter->setNext({});
 }
 
+void MyString::toggleStringsCase()
+{
+    for (Counter *p = counters_; p; p = p->next()){
+        p->toggleStringCase();
+    }
+}
+
 void MyString::printAllStrings()
 {
     if (!counters_){

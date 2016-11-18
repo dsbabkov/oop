@@ -54,6 +54,13 @@ void Counter::setNext(Counter *next)
     next_ = next;
 }
 
+void Counter::toggleStringCase()
+{
+    for (char *p = str_; *p != '\0'; ++p){
+        *p ^= 0x20;
+    }
+}
+
 bool operator ==(const Counter &counter, const char *str)
 {
     return !strcmp(counter.str(), str);
